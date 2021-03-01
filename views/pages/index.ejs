@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>Twitch Message Scheduler</h1>
+            <p>This site lets you schedule messages for your Twitch account. <br /> Login here with Twitch to continue. <br /> <br />Check the <a href="/faq">FAQ</a> for more info.</p>
+
+            <form action="/auth/twitch/">
+                <button type="submit" class="btn btn-outline-danger">Login with Twitch</button>
+            </form>
+            
+
+        </div>
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+</html>

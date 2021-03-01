@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+    <div class="jumbotron">
+        <h1>Twitch Message Scheduler</h1>
+        <% if (typeof schedule == 'undefined'){%>
+        <h5>Schedule a message below</h5>
+        <form method="POST" action="/submit-form">
+          <div class="form-group">
+            <label for="oauthPasswordField">OAuth Password</label>            
+            <a href="https://twitchapps.com/tmi/" target="_blank">(Click me to find it)</a>
+            <input type="password" class="form-control" id="oauthPasswordField" name="oauth" aria-describedby="emailHelp" placeholder="Key here">
+            <small id="emailHelp" class="form-text text-muted">Warning! Anyone with this key can send messages using your account. Although I will never use your OAuth Password in a malicious way, please know the risks before sending this in.</small>
+          </div>
+          <div class="form-group">
+            <label for="channelField">Twitch Channel</label>
+            <input type="text" class="form-control" id="channelField" name="channel" placeholder="xQcOW">
+          </div>
+          <div class="form-group">
+            <label for="messageField">Message to send</label>
+            <input type="text" class="form-control" id="messageField" name="message" placeholder="!cookie">
+          </div>
+          <div class="form-group">
+            <label for="intervalField">Interval (in hours)</label>
+            <input type="number" class="form-control" id="intervalField" name="interval" min="1" placeholder="2">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <%} else{%>
+        <h5>Your scheduled messages:</h5>
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <%=schedule.channel%>
+            <span class="badge badge-primary badge-pill">Channel</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <%=schedule.message%>
+            <span class="badge badge-primary badge-pill">Message</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <%=schedule.interval%> hour(s)
+            <span class="badge badge-primary badge-pill">Interval</span>
+          </li>
+        </ul>
+        <form method="POST" action="/deleteschedule">
+            <button type="submit" class="btn btn-outline-danger">Delete scheduled message</button>
+        </form>
+        <%}%>
+    </div>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

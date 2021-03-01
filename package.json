@@ -1,0 +1,20 @@
+{
+  "name": "node-ejs",
+  "main": "server.js",
+  "dependencies": {
+    "agenda": "^4.1.0",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.4",
+    "mongoose": "^5.11.18",
+    "node-schedule": "^2.0.0",
+    "passport": "^0.4.1",
+    "passport-twitch-new": "^0.0.2",
+    "tmi.js": "^1.7.2",
+    "twitch-api-v5": "^2.0.4"
+  }
+}
